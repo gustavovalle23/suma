@@ -13,7 +13,7 @@ class Checker:
 
     @staticmethod
     def is_defined(value):
-        return value != None
+        return value is not None
 
     @staticmethod
     def is_array(value):
