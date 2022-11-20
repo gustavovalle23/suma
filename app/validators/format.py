@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from app.checker import Checker as checker
-from app.error_codes import codes as err
+from app.error_codes import err
 
 
 def format(value, expression):
@@ -8,6 +8,5 @@ def format(value, expression):
         return
 
     result = checker.is_valid_format(value, expression)
-
     if not result:
-        err.get("invalid_format")
+        return {err.invalid_format: True}

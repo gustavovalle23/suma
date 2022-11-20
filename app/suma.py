@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from app.checker import Checker as checker
-from app.error_codes import error_codes
+from app.checker import Checker
+from app.error_codes import err
 from app.validators.allow_null import allow_null
 from app.validators.presence import presence
 from app.validators.format import format
@@ -24,3 +24,7 @@ def validate(value, validations: dict):
             result = [*result, *validation]
 
     return {"value": value, "errors": result}
+
+
+error_codes = err
+checker = Checker
