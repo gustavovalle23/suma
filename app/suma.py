@@ -4,11 +4,13 @@ from app.error_codes import err
 from app.validators.allow_null import allow_null
 from app.validators.presence import presence
 from app.validators.format import format
+from app.validators.type import type_validator
 
 validators = {
     "presence": presence,
     "format": format,
     "allow_null": allow_null,
+    "type": type_validator,
 }
 
 

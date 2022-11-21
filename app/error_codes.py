@@ -28,4 +28,4 @@ class Err(Enum):
     invalid_python_identifier = "invalid_python_identifier"
 
 
-err = Err()
+err = Err

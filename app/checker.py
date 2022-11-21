@@ -48,6 +48,10 @@ class Checker:
         return isinstance(obj, date)
 
     @staticmethod
+    def is_instance_of(obj, type):
+        return isinstance(obj, type)
+
+    @staticmethod
     def is_object(value):
         return isinstance(value, object)
 
@@ -185,3 +189,6 @@ class Checker:
             return value in vars(object).keys()
 
         return False
+
+
+checker = Checker()
