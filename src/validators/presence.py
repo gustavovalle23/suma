@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from app.checker import checker
-from app.error_codes import err
+from src.checker import checker
+from src.error_codes import err
 
 
 def presence(value, options):

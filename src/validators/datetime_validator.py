@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from app.error_codes import err, HerbsPYException
-from app.checker import checker
+from src.error_codes import err, HerbsPYException
+from src.checker import checker
 
 
 class DateTimeCheckers:

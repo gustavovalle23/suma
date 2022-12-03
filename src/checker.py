@@ -5,7 +5,7 @@ from numbers import Number
 from keyword import kwlist
 from collections.abc import Iterable
 
-from app.error_codes import HerbsPYException
+from src.error_codes import HerbsPYException
 
 
 MUST_BE_A_DATE = "Invalid value. It must be a date."

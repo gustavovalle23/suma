@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from datetime import date
 
-from app.checker import checker
-from app.error_codes import err
+from src.checker import checker
+from src.error_codes import err
 
 type_checkers = {
     str: checker.is_string,
