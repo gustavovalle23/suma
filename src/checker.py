@@ -53,12 +53,21 @@ class Checker:
         return isinstance(obj, date)
 
     @staticmethod
+    def is_reg_exp(obj):
+        try:
+            return bool(re.compile(obj))
+        except re.error:
+            return False
+        except TypeError:
+            return False
+
+    @staticmethod
     def is_instance_of(obj, type):
         return isinstance(obj, type)
 
     @staticmethod
     def is_object(value):
-        return isinstance(value, object)
+        return isinstance(value, dict)
 
     @staticmethod
     def is_empty(value):
@@ -69,7 +78,7 @@ class Checker:
             return False
 
         if Checker.is_string(value):
-            return bool(re.match(r"^(?![\s\S])", value))
+            return len(value.strip()) == 0
 
         if Checker.is_array(value):
             return len(value) == 0
@@ -78,7 +87,7 @@ class Checker:
             return False
 
         if Checker.is_object(value):
-            return len(vars(value)) > 0
+            return len(value.keys()) == 0
 
         return False
 
@@ -201,7 +210,7 @@ class Checker:
             return str(value) in object
 
         if Checker.is_object(object):
-            return value in vars(object).keys()
+            return value in object.keys()
 
         return False
 
