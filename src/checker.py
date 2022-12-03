@@ -58,7 +58,7 @@ class Checker:
 
     @staticmethod
     def is_object(value):
-        return isinstance(value, object)
+        return isinstance(value, dict)
 
     @staticmethod
     def is_empty(value):
@@ -201,7 +201,7 @@ class Checker:
             return str(value) in object
 
         if Checker.is_object(object):
-            return value in vars(object).keys()
+            return value in object.keys()
 
         return False
 
