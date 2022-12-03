@@ -69,7 +69,7 @@ class Checker:
             return False
 
         if Checker.is_string(value):
-            return bool(re.match(r"^(?![\s\S])", value))
+            return len(value.strip()) == 0
 
         if Checker.is_array(value):
             return len(value) == 0
@@ -78,7 +78,7 @@ class Checker:
             return False
 
         if Checker.is_object(value):
-            return len(vars(value)) > 0
+            return len(value.keys()) == 0
 
         return False
 
