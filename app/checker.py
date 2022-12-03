@@ -5,6 +5,11 @@ from numbers import Number
 from keyword import kwlist
 from collections.abc import Iterable
 
+from app.error_codes import HerbsPYException
+
+
+MUST_BE_A_DATE = "Invalid value. It must be a date."
+
 
 class Checker:
     @staticmethod
@@ -73,7 +78,7 @@ class Checker:
             return False
 
         if Checker.is_object(value):
-            return len(vars(value) > 0)
+            return len(vars(value)) > 0
 
         return False
 
@@ -81,6 +86,7 @@ class Checker:
     def is_valid_format(value, expression):
         return bool(re.match(expression, value))
 
+    @staticmethod
     def is_valid_email(value):
         if not Checker.is_string(value):
             return False
@@ -107,49 +113,53 @@ class Checker:
     @staticmethod
     def is_too_short(value, minimum):
         if not Checker.is_number(minimum):
-            raise Exception("Invalid minimum length. It must be a number.")
+            raise HerbsPYException("Invalid minimum length. It must be a number.")
         return len(value) < minimum
 
     @staticmethod
     def is_too_long(value, maximum):
         if not Checker.is_number(maximum):
-            raise Exception("Invalid maximum length. It must be a number.")
+            raise HerbsPYException("Invalid maximum length. It must be a number.")
         return len(value) > maximum
 
     @staticmethod
     def is_wrong_length(value, expected_length):
         if not Checker.is_number(expected_length):
-            raise Exception("Invalid length. It must be a number.")
+            raise HerbsPYException("Invalid length. It must be a number.")
         return len(value) != expected_length
 
     @staticmethod
     def is_equal_to(left, right):
         if not Checker.is_number(right):
-            raise Exception('Invalid "Equal To". It must be a number.')
+            raise HerbsPYException('Invalid "Equal To". It must be a number.')
         return left == right
 
     @staticmethod
     def is_greater_than(left, right):
         if not Checker.is_number(right):
-            raise Exception('Invalid "Greater Than". It must be a number.')
+            raise HerbsPYException('Invalid "Greater Than". It must be a number.')
         return left > right
 
     @staticmethod
     def is_greater_than_or_equal_to(left, right):
         if not Checker.is_number(right):
-            raise Exception('Invalid "Greater Than Or Equal To". It must be a number.')
+            raise HerbsPYException(
+                'Invalid "Greater Than Or Equal To". It must be a number.'
+            )
         return left >= right
 
     @staticmethod
     def is_less_than(left, right):
         if not Checker.is_number(right):
-            raise Exception('Invalid "Less Than". It must be a number.')
+            raise HerbsPYException('Invalid "Less Than". It must be a number.')
         return left < right
 
     @staticmethod
     def is_less_than_or_equal_to(left, right):
         if not Checker.is_number(right):
-            raise Exception('Invalid "Less Than Or Equal To". It must be a number.')
+            raise HerbsPYException(
+                'Invalid "Less Than Or Equal To". It must be a number.'
+            )
         return left <= right
 
     @staticmethod
@@ -159,19 +169,19 @@ class Checker:
     @staticmethod
     def is_before_than(value, param):
         if not Checker.is_date(value):
-            raise Exception("Invalid value. It must be a date.")
+            raise HerbsPYException(MUST_BE_A_DATE)
         return value < param
 
     @staticmethod
-    def isAfterThan(value, param):
+    def is_after_than(value, param):
         if not Checker.is_date(value):
-            raise Exception("Invalid value. It must be a date.")
+            raise HerbsPYException(MUST_BE_A_DATE)
         return value > param
 
     @staticmethod
-    def isAt(value: date, param: date):
+    def is_at(value: date, param: date):
         if not Checker.is_date(value):
-            raise Exception("Invalid value. It must be a date.")
+            raise HerbsPYException(MUST_BE_A_DATE)
         return value == param
 
     @staticmethod
