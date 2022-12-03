@@ -53,6 +53,15 @@ class Checker:
         return isinstance(obj, date)
 
     @staticmethod
+    def is_reg_exp(obj):
+        try:
+            return bool(re.compile(obj))
+        except re.error:
+            return False
+        except TypeError:
+            return False
+
+    @staticmethod
     def is_instance_of(obj, type):
         return isinstance(obj, type)
 
