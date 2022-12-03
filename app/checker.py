@@ -94,16 +94,21 @@ class Checker:
         regex = "^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$"
         return bool(re.search(regex, value))
 
-    # @staticmethod
-    # def is_valid_url(value, options: dict):
-    #     if not Checker.is_string(value):
-    #         return False
+    @staticmethod
+    def is_valid_url(value, options: dict):
+        if not Checker.is_string(value):
+            return False
 
-    #     schemes = options.get('schemes', ['http', 'https'])
-    #     allow_data_url = options.get('allow_data_url', False)
-    #     allow_local = options.get('allow_local', False)
-
-    #     url_pattern = "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
+        regex = re.compile(
+            r"^https?://"  # http:// or https://
+            r"(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+[A-Z]{2,6}\.?|"  # domain...
+            r"localhost|"  # localhost...
+            r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})"  # ...or ip
+            r"(?::\d+)?"  # optional port
+            r"(?:/?|[/?]\S+)$",
+            re.IGNORECASE,
+        )
+        return value is not None and regex.search(value)
 
     @staticmethod
     def is_valid_python_identifier(value):
@@ -201,4 +206,4 @@ class Checker:
         return False
 
 
-checker = Checker()
+checker = Checker
