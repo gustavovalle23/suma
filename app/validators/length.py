@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from app.checker import checker
-from app.error_codes import err
+from app.error_codes import err, HerbsPYException
 
 
 class LengthCheckers:
@@ -32,11 +32,13 @@ def length(value, options: dict):
         if not checker.is_defined:
             continue
 
-        if not validator in vars(LengthCheckers):
-            raise Exception(f'Unknown length validator "{validator}"')
+        if validator not in vars(LengthCheckers):
+            raise HerbsPYException(f'Unknown length validator "{validator}"')
 
         length_checker = getattr(LengthCheckers, validator)
         result = length_checker.func(value, param)
         if result:
             results = results or []
-            results.append({})
+            results.append({[length_checker.err]: param})
+
+    return results

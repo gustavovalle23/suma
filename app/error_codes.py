@@ -29,3 +29,8 @@ class Err(Enum):
 
 
 err = Err
+
+
+class HerbsPYException(Exception):
+    def __init__(self, *args: object) -> None:
+        super().__init__(*args)
