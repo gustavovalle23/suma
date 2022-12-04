@@ -3,7 +3,7 @@
 ![CI Build](https://github.com/herbsjs/suma/workflows/Node.js%20CI/badge.svg?branch=master) [![codecov](https://codecov.io/gh/herbsjs/suma/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/suma)
 
 # Coverage
-
+```text
 Name                                   Stmts   Miss  Cover
 ----------------------------------------------------------
 src/checker.py                           156     53    66%
@@ -23,7 +23,7 @@ src/validators/type.py                    22     17    23%
 src/validators/url.py                      8      5    38%
 ----------------------------------------------------------
 TOTAL                                    441    182    59%
-
+```
 
 
 # Suma
