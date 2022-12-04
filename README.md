@@ -2,6 +2,30 @@
 
 ![CI Build](https://github.com/herbsjs/suma/workflows/Node.js%20CI/badge.svg?branch=master) [![codecov](https://codecov.io/gh/herbsjs/suma/branch/master/graph/badge.svg)](https://codecov.io/gh/herbsjs/suma)
 
+# Coverage
+
+Name                                   Stmts   Miss  Cover
+----------------------------------------------------------
+src/checker.py                           156     53    66%
+src/error_codes.py                        29      1    97%
+src/suma.py                               28      1    96%
+src/validators/allow_null.py               8      0   100%
+src/validators/contains.py                15     12    20%
+src/validators/custom.py                   8      7    12%
+src/validators/datetime_validator.py      41     22    46%
+src/validators/email.py                    8      5    38%
+src/validators/format.py                   8      5    38%
+src/validators/length.py                  32     16    50%
+src/validators/numericality.py            62     28    55%
+src/validators/presence.py                 8      5    38%
+src/validators/python_identifier.py        8      5    38%
+src/validators/type.py                    22     17    23%
+src/validators/url.py                      8      5    38%
+----------------------------------------------------------
+TOTAL                                    441    182    59%
+
+
+
 # Suma
 
 Suma helps with single value validations.
