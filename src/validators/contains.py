@@ -12,7 +12,7 @@ def contains(value, options):
     allowed = options.get("allowed")
     if allowed and not checker.contains(allowed, value):
         results = results or []
-        results.append({[err.not_contains]: allowed})
+        results.append({err.not_contains.name: allowed})
 
     not_allowed = options.get("not_allowed")
     if not_allowed and checker.contains(not_allowed, value):

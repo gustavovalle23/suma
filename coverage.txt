@@ -1,11 +1,11 @@
 Name                                   Stmts   Miss  Cover
 ----------------------------------------------------------
-src/checker.py                           156     53    66%
+src/checker.py                           156     52    67%
 src/error_codes.py                        29      1    97%
 src/suma.py                               28      1    96%
 src/validators/__init__.py                 0      0   100%
 src/validators/allow_null.py               8      0   100%
-src/validators/contains.py                15     12    20%
+src/validators/contains.py                15      2    87%
 src/validators/custom.py                   8      7    12%
 src/validators/datetime_validator.py      41     22    46%
 src/validators/email.py                    8      5    38%
@@ -17,4 +17,8 @@ src/validators/python_identifier.py        8      5    38%
 src/validators/type.py                    22     17    23%
 src/validators/url.py                      8      5    38%
 ----------------------------------------------------------
-TOTAL                                    441    182    59%
+TOTAL                                    441    171    61%
+
+
+coverage run -m pytest test
+coverage report
