@@ -40,7 +40,7 @@ def validate(value, validations: dict):
             raise HerbsPYException(f'Unknown validator "{key}"')
         validation = validator(value, options)
         if validation:
-            result = [*result, *validation]
+            result.append(validation)
 
     return {"value": value, "errors": result}
 
