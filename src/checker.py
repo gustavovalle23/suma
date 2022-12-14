@@ -93,6 +93,7 @@ class Checker:
 
     @staticmethod
     def is_valid_format(value, expression):
+        print("\n\n", value, expression, re.match(expression, value))
         return bool(re.match(expression, value))
 
     @staticmethod
