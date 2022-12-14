@@ -17,6 +17,6 @@ def contains(value, options):
     not_allowed = options.get("not_allowed")
     if not_allowed and checker.contains(not_allowed, value):
         results = results or []
-        results.append({[err.contains]: not_allowed})
+        results.append({err.contains.name: not_allowed})
 
     return results
